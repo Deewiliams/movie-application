@@ -1,11 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { makeStyles } from "@material-ui/core/styles";
-import Paper from "@material-ui/core/Paper";
-import CardContent from "@material-ui/core/CardContent";
 import Grid from "@material-ui/core/Grid";
-import { Container, Typography, Button } from "@material-ui/core";
-import CardHeader from "@material-ui/core/CardHeader";
+import { Container, Typography, Button,CardContent,CardHeader } from "@material-ui/core";
 import {Link} from 'react-router-dom'
 
 const useStyles = makeStyles((theme) => ({
@@ -34,7 +31,6 @@ const MovieDetails = () => {
         setMovieDeatails(data);
       });
   };
-  console.log(movieDetails);
 
   useEffect(() => {
     fetchMovieDetails();
@@ -47,6 +43,7 @@ const MovieDetails = () => {
           <Grid item xs={12} sm={6}>
             <img
               src={`http://image.tmdb.org/t/p/w400${movieDetails.poster_path}`}
+              alt={movieDetails.title}
             />
           </Grid>
           <Grid item xs={12} sm={6}>

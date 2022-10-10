@@ -1,12 +1,15 @@
 import './App.css';
 import Add from './Components/Add';
+import { GlobalProvider } from './Components/context/GlobalState';
 
 function App() {
   return (
-    <div>
+    <GlobalProvider>
     <Add />
       
-    </div>
+    </GlobalProvider>
+   
+   
   );
 }
 

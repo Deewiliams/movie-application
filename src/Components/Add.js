@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import { Container, TextField, Paper, Grid } from "@material-ui/core";
 
@@ -15,6 +15,19 @@ const useStyles = makeStyles((theme) => ({
 
 export default function Add() {
   const classes = useStyles();
+  const [query, setQuery] = useState("");
+
+  const handleChange = (e) => {
+    e.preventDefault();
+
+    setQuery(e.target.value);
+
+    fetch(`https://api.themoviedb.org/3/search/movie?api_key=${process.env.REACT_APP_API_KEY}&language=en-US&page=1&include_adult=false&query=${e.target.value}`)
+    .then((respond) => respond.json()).then((data) => {
+        console.log('data',data)
+    }
+    )
+  };
 
   return (
     <div className={classes.root}>
@@ -28,6 +41,8 @@ export default function Add() {
                 label="Search field"
                 type="search"
                 fullWidth
+                value={query}
+                onChange={handleChange}
               />
             </Paper>
           </Grid>

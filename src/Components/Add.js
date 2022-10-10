@@ -35,9 +35,9 @@ export default function Add() {
       .then((respond) => respond.json())
       .then((data) => {
         setSearchResults(data.results);
-        console.log("final results", searchResults);
-      });
-  };
+    });
+};
+console.log("final results", searchResults);
 
   return (
     <div className={classes.root}>
@@ -63,7 +63,14 @@ export default function Add() {
       <Container>
         <Grid container spacing={8}>
           <Grid item sm={12}>
-            <SearchResult searchResults={searchResults} />
+            {
+                searchResults.map((movie) => (
+                    <div key={movie.id}>
+
+                        <SearchResult movie={movie} />
+                    </div>
+                ))
+            }
           </Grid>
         </Grid>
       </Container>

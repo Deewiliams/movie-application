@@ -30,23 +30,23 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function SearchResult({ searchResults }) {
+export default function SearchResult({ movie }) {
   const classes = useStyles();
-  const {addWatchListMovies} = useContext(GlobalContext)
+  const {addWatchListMovies,watchList} = useContext(GlobalContext)
 
+  const storeMovie = watchList.find(o => o.id === movie.id );
+  const disablewatchListMovie = storeMovie ? true : false;
   return (
     <Card className={classes.root}>
-      {searchResults.map((movie) => (
-        <div key={movie.id}>
+     
           <CardHeader title={movie.title} subheader={movie.release_date} />
           <CardMedia
             className={classes.media}
             image={`http://image.tmdb.org/t/p/w400${movie.poster_path}`}
             title={movie.title}
           />
-          <Button onClick={() => addWatchListMovies(movie)} >Add movies</Button>
-        </div>
-      ))}
+          <Button variant="contained" color="primary" disabled={disablewatchListMovie} onClick={() => addWatchListMovies(movie)} >Add movies</Button>
+    
     </Card>
   );
 }

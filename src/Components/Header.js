@@ -36,7 +36,10 @@ export default function Header() {
           <Link to="/">
           <Button color="inherit">WatchList</Button>
           </Link>
+          <Link to="/watched">
           <Button color="inherit">watched</Button>
+
+          </Link>
           <Link to="/add">
           <Button color="inherit">+ Add</Button>
           </Link>

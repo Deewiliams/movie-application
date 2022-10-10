@@ -3,10 +3,10 @@ import { Button } from "@material-ui/core";
 import { GlobalContext } from "./context/GlobalState";
 
 const MovieControls = ({movie}) => {
-    const { removeMovieFromWatchList } = useContext(GlobalContext);
+    const { removeMovieFromWatchList,addMovieToWatched } = useContext(GlobalContext);
   return (
     <div>
-      <Button variant="contained">Default</Button>
+      <Button onClick={() => addMovieToWatched(movie)} variant="contained">Default</Button>
       <Button onClick={() => removeMovieFromWatchList(movie.id)} variant="contained" color="primary">
         X
       </Button>

@@ -6,6 +6,7 @@ import Card from "@material-ui/core/Card";
 import CardHeader from "@material-ui/core/CardHeader";
 import CardMedia from "@material-ui/core/CardMedia";
 import { truncate } from "../Utils/helpers";
+import { Link } from "react-router-dom";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -25,20 +26,22 @@ const useStyles = makeStyles((theme) => ({
 const WatchList = () => {
   const classes = useStyles();
   const { watchList } = useContext(GlobalContext);
-  console.log('image',watchList);
 
   return (
     <div className={classes.root}>
       <Grid container spacing={3}>
         {watchList.map((watch) => (
-          <Grid item xs={12} sm={3}>
+          <Grid item xs={12} sm={3} key={watch.id}>
             <Card className={classes.root}>
               <CardHeader title={truncate(watch.title)} />
-              <CardMedia
-                className={classes.media}
-                image={`http://image.tmdb.org/t/p/w400${watch.poster_path}`}
-                title={watch.title}
-              />
+              <Link to={`/movie/${watch.id}`}>
+                <CardMedia
+                  style={{ cursor: "pointer" }}
+                  className={classes.media}
+                  image={`http://image.tmdb.org/t/p/w400${watch.poster_path}`}
+                  title={watch.title}
+                />
+              </Link>
             </Card>
           </Grid>
         ))}

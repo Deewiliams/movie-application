@@ -14,7 +14,7 @@ function App() {
       <Routes>
         <Route path="/" element={<WatchList />} />
         <Route path="add" element={<Add />} />
-        <Route path="/movie/:id" element={<MovieDetails />} />
+        <Route path="/movie/:movieId" element={<MovieDetails />} />
       </Routes>
     </GlobalProvider>
   );

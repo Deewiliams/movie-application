@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { makeStyles } from "@material-ui/core/styles";
-import { Container, TextField, Paper, Grid } from "@material-ui/core";
-
+import { Container, TextField, Paper, Grid,CardMedia } from "@material-ui/core";
+import SearchResult from "./SearchResult";
 const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
@@ -16,17 +16,21 @@ const useStyles = makeStyles((theme) => ({
 export default function Add() {
   const classes = useStyles();
   const [query, setQuery] = useState("");
+  const [searchResults, setSearchResults] = useState([]);
 
   const handleChange = (e) => {
     e.preventDefault();
 
     setQuery(e.target.value);
 
-    fetch(`https://api.themoviedb.org/3/search/movie?api_key=${process.env.REACT_APP_API_KEY}&language=en-US&page=1&include_adult=false&query=${e.target.value}`)
-    .then((respond) => respond.json()).then((data) => {
-        console.log('data',data)
-    }
+    fetch(
+      `https://api.themoviedb.org/3/search/movie?api_key=${process.env.REACT_APP_API_KEY}&language=en-US&page=1&include_adult=false&query=${e.target.value}`
     )
+      .then((respond) => respond.json())
+      .then((data) => {
+        setSearchResults(data.results);
+        console.log("final results", searchResults);
+      });
   };
 
   return (
@@ -46,24 +50,28 @@ export default function Add() {
               />
             </Paper>
           </Grid>
-          {/* <Grid item xs={6}>
-          <Paper className={classes.paper}>xs=6</Paper>
         </Grid>
-        <Grid item xs={6}>
-          <Paper className={classes.paper}>xs=6</Paper>
-        </Grid>
-        <Grid item xs={3}>
-          <Paper className={classes.paper}>xs=3</Paper>
-        </Grid>
-        <Grid item xs={3}>
-          <Paper className={classes.paper}>xs=3</Paper>
-        </Grid>
-        <Grid item xs={3}>
-          <Paper className={classes.paper}>xs=3</Paper>
-        </Grid>
-        <Grid item xs={3}>
-          <Paper className={classes.paper}>xs=3</Paper>
-        </Grid> */}
+      </Container>
+
+      <Container>
+        <br />
+        <Grid container spacing={3}>
+          <Grid item sm={12} md={3}>
+        
+            <Paper className={classes.paper}>
+                <SearchResult searchResults={searchResults} />
+                {/* {result.title}
+<img src={`http://image.tmdb.org/t/p/w400${result.poster_path}`} />
+                <CardMedia
+        // className={classes.media}
+        image={`http://image.tmdb.org/t/p/w400${result.poster_path}`}
+        title={result.title}
+      /> */}
+                {/* poster_path */}
+            </Paper>
+            
+          </Grid>
+          
         </Grid>
       </Container>
     </div>

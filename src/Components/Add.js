@@ -45,16 +45,14 @@ export default function Add() {
         <br />
         <Grid container spacing={3}>
           <Grid item xs={12}>
-            <Paper className={classes.paper}>
               <TextField
                 id="standard-search"
-                label="Search field"
+                label="Search for movies"
                 type="search"
                 fullWidth
                 value={query}
                 onChange={handleChange}
               />
-            </Paper>
           </Grid>
         </Grid>
       </Container>

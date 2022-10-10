@@ -48,11 +48,13 @@ export default function SearchResult({ movie }) {
         image={`http://image.tmdb.org/t/p/w400${movie.poster_path}`}
         title={movie.title}
       />
+      <br />
       <Button
         variant="contained"
         color="primary"
         disabled={disablewatchListMovie}
         onClick={() => addWatchListMovies(movie)}
+        fullWidth
       >
         Add movies
       </Button>

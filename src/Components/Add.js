@@ -3,9 +3,7 @@ import { makeStyles } from "@material-ui/core/styles";
 import {
   Container,
   TextField,
-  Paper,
   Grid,
-  CardMedia,
 } from "@material-ui/core";
 import SearchResult from "./SearchResult";
 const useStyles = makeStyles((theme) => ({
@@ -37,7 +35,6 @@ export default function Add() {
         setSearchResults(data.results);
       });
   };
-  console.log("final results", searchResults);
 
   return (
     <div className={classes.root}>

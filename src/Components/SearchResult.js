@@ -5,7 +5,7 @@ import CardHeader from "@material-ui/core/CardHeader";
 import CardMedia from "@material-ui/core/CardMedia";
 import { Button } from "@material-ui/core";
 import { red } from "@material-ui/core/colors";
-import { GlobalContext, GlobalProvider } from "./context/GlobalState";
+import { GlobalContext } from "./context/GlobalState";
 import { truncate } from "../Utils/helpers";
 
 const useStyles = makeStyles((theme) => ({
@@ -56,7 +56,7 @@ export default function SearchResult({ movie }) {
         onClick={() => addWatchListMovies(movie)}
         fullWidth
       >
-        Add movies
+        Add Watch list
       </Button>
     </Card>
   );

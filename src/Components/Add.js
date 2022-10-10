@@ -1,6 +1,12 @@
 import React, { useState } from "react";
 import { makeStyles } from "@material-ui/core/styles";
-import { Container, TextField, Paper, Grid,CardMedia } from "@material-ui/core";
+import {
+  Container,
+  TextField,
+  Paper,
+  Grid,
+  CardMedia,
+} from "@material-ui/core";
 import SearchResult from "./SearchResult";
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -53,25 +59,12 @@ export default function Add() {
         </Grid>
       </Container>
 
+      <br />
       <Container>
-        <br />
-        <Grid container spacing={3}>
-          <Grid item sm={12} md={3}>
-        
-            <Paper className={classes.paper}>
-                <SearchResult searchResults={searchResults} />
-                {/* {result.title}
-<img src={`http://image.tmdb.org/t/p/w400${result.poster_path}`} />
-                <CardMedia
-        // className={classes.media}
-        image={`http://image.tmdb.org/t/p/w400${result.poster_path}`}
-        title={result.title}
-      /> */}
-                {/* poster_path */}
-            </Paper>
-            
+        <Grid container spacing={8}>
+          <Grid item sm={12}>
+            <SearchResult searchResults={searchResults} />
           </Grid>
-          
         </Grid>
       </Container>
     </div>

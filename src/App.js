@@ -9,6 +9,7 @@ function App() {
   return (
     <GlobalProvider>
        <Header />
+       <br />
        <Routes>
         <Route path="/" element={<WatchList />} />
         <Route path="add" element={ <Add />} />

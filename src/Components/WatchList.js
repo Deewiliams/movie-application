@@ -31,7 +31,7 @@ const WatchList = () => {
     <div className={classes.root}>
       <Grid container spacing={3}>
         {watchList.map((watch) => (
-          <Grid item xs={6} sm={3}>
+          <Grid item xs={12} sm={3}>
             <Card className={classes.root}>
               <CardHeader title={truncate(watch.title)} />
               <CardMedia

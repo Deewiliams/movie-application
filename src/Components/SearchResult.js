@@ -1,4 +1,4 @@
-import React,{useContext} from "react";
+import React, { useContext } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import Card from "@material-ui/core/Card";
 import CardHeader from "@material-ui/core/CardHeader";
@@ -13,7 +13,7 @@ const useStyles = makeStyles((theme) => ({
     maxWidth: 345,
   },
   media: {
-    height: 0,
+    height: 150,
     paddingTop: "56.25%", // 16:9
   },
   expand: {
@@ -33,21 +33,29 @@ const useStyles = makeStyles((theme) => ({
 
 export default function SearchResult({ movie }) {
   const classes = useStyles();
-  const {addWatchListMovies,watchList} = useContext(GlobalContext)
+  const { addWatchListMovies, watchList } = useContext(GlobalContext);
 
-  const storeMovie = watchList.find(o => o.id === movie.id );
+  const storeMovie = watchList.find((o) => o.id === movie.id);
   const disablewatchListMovie = storeMovie ? true : false;
   return (
     <Card className={classes.root}>
-     
-          <CardHeader title={truncate(movie.title)} subheader={movie.release_date.substring(0,4)} />
-          <CardMedia
-            className={classes.media}
-            image={`http://image.tmdb.org/t/p/w400${movie.poster_path}`}
-            title={movie.title}
-          />
-          <Button variant="contained" color="primary" disabled={disablewatchListMovie} onClick={() => addWatchListMovies(movie)} >Add movies</Button>
-    
+      <CardHeader
+        title={truncate(movie.title)}
+        subheader={movie.release_date.substring(0, 4)}
+      />
+      <CardMedia
+        className={classes.media}
+        image={`http://image.tmdb.org/t/p/w400${movie.poster_path}`}
+        title={movie.title}
+      />
+      <Button
+        variant="contained"
+        color="primary"
+        disabled={disablewatchListMovie}
+        onClick={() => addWatchListMovies(movie)}
+      >
+        Add movies
+      </Button>
     </Card>
   );
 }

@@ -5,6 +5,7 @@ import Grid from "@material-ui/core/Grid";
 import Card from "@material-ui/core/Card";
 import CardHeader from "@material-ui/core/CardHeader";
 import CardMedia from "@material-ui/core/CardMedia";
+import { truncate } from "../Utils/helpers";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -32,7 +33,7 @@ const WatchList = () => {
         {watchList.map((watch) => (
           <Grid item xs={6} sm={3}>
             <Card className={classes.root}>
-              <CardHeader title={watch.title} subheader={watch.release_date} />
+              <CardHeader title={truncate(watch.title)} />
               <CardMedia
                 className={classes.media}
                 image={`http://image.tmdb.org/t/p/w400${watch.poster_path}`}

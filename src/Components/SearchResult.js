@@ -6,6 +6,7 @@ import CardMedia from "@material-ui/core/CardMedia";
 import { Button } from "@material-ui/core";
 import { red } from "@material-ui/core/colors";
 import { GlobalContext, GlobalProvider } from "./context/GlobalState";
+import { truncate } from "../Utils/helpers";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -39,7 +40,7 @@ export default function SearchResult({ movie }) {
   return (
     <Card className={classes.root}>
      
-          <CardHeader title={movie.title} subheader={movie.release_date} />
+          <CardHeader title={truncate(movie.title)} subheader={movie.release_date.substring(0,4)} />
           <CardMedia
             className={classes.media}
             image={`http://image.tmdb.org/t/p/w400${movie.poster_path}`}

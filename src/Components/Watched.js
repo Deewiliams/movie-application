@@ -37,7 +37,6 @@ const Watched = () => {
   return (
     <div className={classes.root}>
       <Grid container spacing={3}>
-        {watched.length > 0 ? (
           <>
             {watched.map((movie) => (
               <Grid item xs={12} sm={3} key={movie.id}>
@@ -56,9 +55,6 @@ const Watched = () => {
               </Grid>
             ))}
           </>
-        ) : (
-          <div>nothing</div>
-        )}
       </Grid>
     </div>
   );

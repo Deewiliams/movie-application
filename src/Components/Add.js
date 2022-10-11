@@ -1,11 +1,9 @@
 import React, { useState } from "react";
 import { makeStyles } from "@material-ui/core/styles";
-import {
-  Container,
-  TextField,
-  Grid,
-} from "@material-ui/core";
+import { Container, TextField, Grid } from "@material-ui/core";
 import SearchResult from "./SearchResult";
+import { PopularMovies } from "./PopularMovies";
+
 const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
@@ -42,30 +40,34 @@ export default function Add() {
         <br />
         <Grid container spacing={3}>
           <Grid item xs={12}>
-              <TextField
-                id="standard-search"
-                label="Search for movies"
-                type="search"
-                fullWidth
-                value={query}
-                onChange={handleChange}
-              />
+            <TextField
+              id="standard-search"
+              label="Search for movies"
+              type="search"
+              fullWidth
+              value={query}
+              onChange={handleChange}
+            />
           </Grid>
         </Grid>
       </Container>
 
       <br />
-      <Container>
-        <Grid container spacing={8}>
-          {searchResults.map((movie) => (
-            <Grid item xs={12} sm={3}>
-              <div key={movie.id}>
-                <SearchResult movie={movie} />
-            </div>
+      {searchResults.length > 0 ? (
+        <Container>
+          <Grid container spacing={8}>
+            {searchResults.map((movie) => (
+              <Grid item xs={12} sm={3}>
+                <div key={movie.id}>
+                  <SearchResult movie={movie} />
+                </div>
               </Grid>
-          ))}
-        </Grid>
-      </Container>
+            ))}
+          </Grid>
+        </Container>
+      ) : (
+        <PopularMovies />
+      )}
     </div>
   );
 }

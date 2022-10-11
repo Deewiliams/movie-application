@@ -20,8 +20,22 @@ export default (state, action) => {
         ),
         watched: [action.payload, ...state.watched],
       };
+      case "MOVE_TO_WATCHED_LIST":
+      return {
+        ...state,
+        watched: state.watched.filter(
+          (movie) => movie.id !== action.payload.id
+        ),
+        watchList: [action.payload, ...state.watchList],
+      };
+
+
+    case "REMOVED_FROM_WATCHED":
+      return {
+        ...state,
+        watched: state.watched.filter((movie) => movie.id !== action.payload),
+      };
     default:
       return state;
   }
 };
-

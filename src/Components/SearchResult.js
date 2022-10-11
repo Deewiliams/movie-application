@@ -33,10 +33,17 @@ const useStyles = makeStyles((theme) => ({
 
 export default function SearchResult({ movie }) {
   const classes = useStyles();
-  const { addWatchListMovies, watchList } = useContext(GlobalContext);
+  const { addWatchListMovies,addMovieToWatched, watchList, watched } = useContext(GlobalContext);
 
   const storeMovie = watchList.find((o) => o.id === movie.id);
-  const disablewatchListMovie = storeMovie ? true : false;
+  const storeMovieWatched = watched.find((o) => o.id === movie.id);
+  const disablewatchListMovie = storeMovie
+    ? true
+    : storeMovieWatched
+    ? true
+    : false;
+
+    const watchedDisable = storeMovieWatched ? true : false;
   return (
     <Card className={classes.root}>
       <CardHeader
@@ -54,9 +61,17 @@ export default function SearchResult({ movie }) {
         color="primary"
         disabled={disablewatchListMovie}
         onClick={() => addWatchListMovies(movie)}
-        fullWidth
       >
         Add Watch list
+      </Button>
+
+      <Button
+        variant="contained"
+        color="primary"
+        disabled={watchedDisable}
+        onClick={() => addMovieToWatched(movie)}
+      >
+        Add to watched
       </Button>
     </Card>
   );

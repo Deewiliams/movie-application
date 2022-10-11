@@ -7,6 +7,7 @@ import CardHeader from "@material-ui/core/CardHeader";
 import CardMedia from "@material-ui/core/CardMedia";
 import { truncate } from "../Utils/helpers";
 import { Link } from "react-router-dom";
+import WatchedMovieControls from "./WatchMovieControls";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -45,6 +46,7 @@ const Watched = () => {
                     />
                   </Link>
                 </Card>
+                <WatchedMovieControls movie={movie} />
               </Grid>
             ))}
           </>

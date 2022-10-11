@@ -4,3 +4,5 @@ export function truncate(title) {
     }
     return title.substring(0, 20) + " ...";
   }
+
+ 

@@ -1,10 +1,12 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 
-import { Container, Grid } from "@material-ui/core";
+import { Container, Grid, Button } from "@material-ui/core";
 import Card from "@material-ui/core/Card";
 import CardHeader from "@material-ui/core/CardHeader";
 import CardMedia from "@material-ui/core/CardMedia";
+import { GlobalContext } from "./context/GlobalState";
+import { truncate } from "../Utils/helpers";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -25,8 +27,14 @@ const useStyles = makeStyles((theme) => ({
 
 export const PopularMovies = () => {
   const classes = useStyles();
-
+  const { addWatchListMovies, watchList } = useContext(GlobalContext);
   const [fetchedMovies, setFetchedMovies] = useState([]);
+  const [disableSelectedWatchList, setDisableSelectedWatchList] = useState(
+    null
+  );
+
+  const storeMovie = watchList.find((o) => o.id === fetchedMovies.id);
+  const disablewatchListMovie = storeMovie ? true : false;
 
   const fetchPopularMovies = () => {
     fetch(
@@ -49,7 +57,7 @@ export const PopularMovies = () => {
             <Grid item xs={12} sm={3} key={movie.id}>
               <Card className={classes.root}>
                 <CardHeader
-                  title={movie.title}
+                  title={truncate(movie.title)}
                   subheader={movie.release_date.substring(0, 4)}
                 />
                 <CardMedia
@@ -58,6 +66,19 @@ export const PopularMovies = () => {
                   title={movie.title}
                 />
               </Card>
+              <br />
+              <Button
+                variant="contained"
+                color="primary"
+                disabled={disablewatchListMovie}
+                onClick={() => {
+                  addWatchListMovies(movie);
+                  setDisableSelectedWatchList(movie.id);
+                }}
+                fullWidth
+              >
+                Add Watch list
+              </Button>
             </Grid>
           ))}
         </Grid>

@@ -22,7 +22,6 @@ export default function Add() {
 
   const handleChange = (e) => {
     e.preventDefault();
-
     setQuery(e.target.value);
 
     fetch(
@@ -34,6 +33,9 @@ export default function Add() {
       });
   };
 
+
+
+  
   return (
     <div className={classes.root}>
       <Container>

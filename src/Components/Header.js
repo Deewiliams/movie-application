@@ -33,14 +33,14 @@ export default function Header() {
           <Typography variant="h6" className={classes.title}>
             News
           </Typography>
-          <Link to="/">
+          <Link to="/" style={{textDecoration: 'none', color: 'white'}}>
           <Button color="inherit">WatchList</Button>
           </Link>
-          <Link to="/watched">
+          <Link to="/watched" style={{textDecoration: 'none', color: 'white'}}>
           <Button color="inherit">watched</Button>
 
           </Link>
-          <Link to="/add">
+          <Link to="/add" style={{textDecoration: 'none', color: 'white'}}>
           <Button color="inherit">+ Add</Button>
           </Link>
         </Toolbar>

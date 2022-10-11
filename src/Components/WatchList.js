@@ -9,6 +9,7 @@ import CardMedia from "@material-ui/core/CardMedia";
 import { truncate } from "../Utils/helpers";
 import { Link } from "react-router-dom";
 import MovieControls from "./MovieControls";
+import TextMesage from "./TextMesage";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -28,6 +29,10 @@ const useStyles = makeStyles((theme) => ({
 const WatchList = () => {
   const classes = useStyles();
   const { watchList } = useContext(GlobalContext);
+
+  if(watchList.length < 1){
+    return <TextMesage message='watch list'/>
+  }
 
   return (
     <div className={classes.root}>

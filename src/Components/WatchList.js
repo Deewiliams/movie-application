@@ -9,7 +9,7 @@ import CardMedia from "@material-ui/core/CardMedia";
 import { truncate } from "../Utils/helpers";
 import { Link } from "react-router-dom";
 import MovieControls from "./MovieControls";
-import TextMesage from "./TextMesage";
+import TextMessage from "./TextMessage";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -31,7 +31,7 @@ const WatchList = () => {
   const { watchList } = useContext(GlobalContext);
 
   if(watchList.length < 1){
-    return <TextMesage message='watch list'/>
+    return <TextMessage message='watch list'/>
   }
 
   return (

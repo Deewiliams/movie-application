@@ -8,6 +8,7 @@ import CardMedia from "@material-ui/core/CardMedia";
 import { truncate } from "../Utils/helpers";
 import { Link } from "react-router-dom";
 import WatchedMovieControls from "./WatchMovieControls";
+import TextMessage from './TextMessage'
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -28,6 +29,11 @@ const Watched = () => {
   const classes = useStyles();
 
   const { watched } = useContext(GlobalContext);
+
+  if(watched.length < 1){
+    return <TextMessage message='watched'/>
+  }
+
   return (
     <div className={classes.root}>
       <Grid container spacing={3}>

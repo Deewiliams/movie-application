@@ -2,8 +2,14 @@ import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { makeStyles } from "@material-ui/core/styles";
 import Grid from "@material-ui/core/Grid";
-import { Container, Typography, Button,CardContent,CardHeader } from "@material-ui/core";
-import {Link} from 'react-router-dom'
+import {
+  Container,
+  Typography,
+  Button,
+  CardContent,
+  CardHeader,
+} from "@material-ui/core";
+import { Link } from "react-router-dom";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -78,10 +84,10 @@ const MovieDetails = () => {
                 {movieDetails.popularity}
               </Typography>
             </CardContent>
-            <Link to='/'>
-            <Button variant="contained" color="primary" fullWidth>
-              Go Back
-            </Button>
+            <Link to="/" style={{textDecoration: "none"}}>
+              <Button variant="contained" color="primary" fullWidth >
+                Go Back
+              </Button>
             </Link>
           </Grid>
         </Grid>

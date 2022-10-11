@@ -31,6 +31,7 @@ const WatchList = () => {
 
   return (
     <div className={classes.root}>
+        <br />
       <Grid container spacing={3}>
         {watchList.map((movie) => (
           <Grid item xs={12} sm={3} key={movie.id}>
@@ -44,7 +45,7 @@ const WatchList = () => {
                   title={movie.title}
                 />
               </Link>
-              <Link to={`/movie/${movie.id}`}>
+              <Link to={`/movie/${movie.id}`} style={{textDecoration: 'none'}}>
                 <Button variant="contained" color="primary" fullWidth>
                   View Movie detail
                 </Button>

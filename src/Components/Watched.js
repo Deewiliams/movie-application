@@ -9,7 +9,7 @@ import { truncate } from "../Utils/helpers";
 import { Link } from "react-router-dom";
 import WatchedMovieControls from "./WatchMovieControls";
 import TextMessage from "./TextMessage";
-import { Container, TextField } from "@material-ui/core";
+import { Container, TextField, Typography } from "@material-ui/core";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -39,6 +39,12 @@ const Watched = () => {
     <div className={classes.root}>
       <br />
       <Container>
+      <div>
+        <Typography variant="h6" >
+          Watched Movies
+        </Typography>
+      </div>
+      <br />
         <Grid item xs={12}>
           <TextField
             id="outlined-helperText"

@@ -3,7 +3,7 @@ import { GlobalContext } from "./context/GlobalState";
 import { makeStyles } from "@material-ui/core/styles";
 import Grid from "@material-ui/core/Grid";
 import Card from "@material-ui/core/Card";
-import { Button, Container, TextField } from "@material-ui/core";
+import { Button, Container, TextField,Typography } from "@material-ui/core";
 import CardHeader from "@material-ui/core/CardHeader";
 import CardMedia from "@material-ui/core/CardMedia";
 import { truncate } from "../Utils/helpers";
@@ -39,6 +39,12 @@ const WatchList = () => {
     <div className={classes.root}>
       <br />
       <Container>
+      <div>
+        <Typography variant="h6" >
+          Watch lists
+        </Typography>
+      </div>
+      <br />
         <Grid item xs={12}>
           <TextField
             id="outlined-helperText"

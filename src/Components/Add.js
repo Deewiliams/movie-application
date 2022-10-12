@@ -32,9 +32,6 @@ export default function Add() {
         setSearchResults(data.results);
       });
   };
-
-
-
   
   return (
     <div className={classes.root}>
@@ -43,10 +40,12 @@ export default function Add() {
         <Grid container spacing={3}>
           <Grid item xs={12}>
             <TextField
-              id="standard-search"
-              label="Search for movies"
-              type="search"
+              id="outlined-helperText"
+              label="search for movies"
+              variant="outlined"
+              type="text"
               fullWidth
+              placeholder="Search for movies..."
               value={query}
               onChange={handleChange}
             />

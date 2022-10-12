@@ -7,6 +7,7 @@ import { Button } from "@material-ui/core";
 import { red } from "@material-ui/core/colors";
 import { GlobalContext } from "./context/GlobalState";
 import { truncate } from "../Utils/helpers";
+import{ Link} from 'react-router-dom'
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -55,11 +56,13 @@ export default function SearchResult({ movie }) {
         title={truncate(movie.title)}
         subheader={movie.release_date.substring(0, 4)}
       />
+      <Link to={`/movie/${movie.id}`}>
       <CardMedia
         className={classes.media}
         image={`http://image.tmdb.org/t/p/w400${movie.poster_path}`}
         title={movie.title}
       />
+      </Link>
       <br />
       <Button
         variant="contained"

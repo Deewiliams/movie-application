@@ -45,7 +45,7 @@ export default function Header() {
       <AppBar position="static" style={{ backgroundColor: "gray" }}>
         <Toolbar style={{ backGroundColor: "white" }}>
           <Typography variant="h6" className={classes.title}>
-            News
+            Movie App
           </Typography>
           <Tabs
             value={value}

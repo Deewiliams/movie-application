@@ -45,7 +45,6 @@ export default function Header() {
             indicatorColor="primary"
             textColor="white"
             onChange={handleChange}
-            aria-label="disabled tabs example"
           >
             <Tab label="WatchList" to="/" component={Link} />
             <Tab label="watched" to="/watched" component={Link} />

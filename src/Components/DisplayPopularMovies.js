@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useContext } from "react";
 import { makeStyles } from "@material-ui/core/styles";
-import { Container, Grid, Button } from "@material-ui/core";
 import Card from "@material-ui/core/Card";
+import Button from "@material-ui/core/Button";
 import CardHeader from "@material-ui/core/CardHeader";
 import CardMedia from "@material-ui/core/CardMedia";
 import { GlobalContext } from "./context/GlobalState";
@@ -33,31 +33,31 @@ const DisplayPopularMovies = ({ movie }) => {
   const disablewatchListMovie = storeMovie ? true : false;
   return (
     <div>
-            <Card className={classes.root}>
-              <CardHeader
-                title={truncate(movie.title)}
-                subheader={movie.release_date.substring(0, 4)}
-              />
-              <Link to={`/movie/${movie.id}`}>
-                <CardMedia
-                  className={classes.media}
-                  image={`http://image.tmdb.org/t/p/w400${movie.poster_path}`}
-                  title={movie.title}
-                />
-              </Link>
-            </Card>
-            <br />
-            <Button
-              variant="contained"
-              color="primary"
-              disabled={disablewatchListMovie}
-              onClick={() => {
-                addWatchListMovies(movie);
-              }}
-              fullWidth
-            >
-              Add Watch list
-            </Button>
+      <Card className={classes.root}>
+        <CardHeader
+          title={truncate(movie.title)}
+          subheader={movie.release_date.substring(0, 4)}
+        />
+        <Link to={`/movie/${movie.id}`}>
+          <CardMedia
+            className={classes.media}
+            image={`http://image.tmdb.org/t/p/w400${movie.poster_path}`}
+            title={movie.title}
+          />
+        </Link>
+      </Card>
+      <br />
+      <Button
+        variant="contained"
+        color="primary"
+        disabled={disablewatchListMovie}
+        onClick={() => {
+          addWatchListMovies(movie);
+        }}
+        fullWidth
+      >
+        Add Watch list
+      </Button>
     </div>
   );
 };

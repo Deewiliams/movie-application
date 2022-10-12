@@ -9,6 +9,7 @@ import { truncate } from "../Utils/helpers";
 import { Link } from "react-router-dom";
 import WatchedMovieControls from "./WatchMovieControls";
 import TextMessage from './TextMessage'
+import { Container } from "@material-ui/core";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -36,6 +37,7 @@ const Watched = () => {
 
   return (
     <div className={classes.root}>
+      <Container>
       <Grid container spacing={3}>
           <>
             {watched.map((movie) => (
@@ -56,6 +58,7 @@ const Watched = () => {
             ))}
           </>
       </Grid>
+      </Container>
     </div>
   );
 };

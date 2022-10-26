@@ -28,8 +28,6 @@ export default (state, action) => {
         ),
         watchList: [action.payload, ...state.watchList],
       };
-
-
     case "REMOVED_FROM_WATCHED":
       return {
         ...state,

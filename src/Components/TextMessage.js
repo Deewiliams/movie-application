@@ -8,7 +8,7 @@ const TextMesage = ({message}) => {
       variant="body2"
       color="textSecondary"
       component="p"
-      style={{ textAlign: "center", fontSize: 30 }}
+      style={{ textAlign: "center", fontSize: 30, marginTop: 100 }}
     >
       There are no {message}  movies
     </Typography>

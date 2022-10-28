@@ -32,7 +32,7 @@ const WatchList = () => {
   const [query, setQuery] = useState("");
   const { watchList } = useContext(GlobalContext);
 
-  if (watchList.length < 1) {
+  if (watchList.length <= 0) {
     return <TextMessage message="watch list" />;
   }
 

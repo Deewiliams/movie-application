@@ -1,24 +1,8 @@
-import React, { useState, useEffect, useContext } from "react";
-import { makeStyles } from "@material-ui/core/styles";
-import { Container, Grid, Button } from "@material-ui/core";
+import React, { useState, useEffect } from "react";
+import { Container, Grid} from "@material-ui/core";
 import DisplayPopularMovies from "./DisplayPopularMovies";
 
-const useStyles = makeStyles((theme) => ({
-  root: {
-    maxWidth: 345,
-  },
-  media: {
-    height: 150,
-    paddingTop: "56.25%", // 16:9
-  },
-  expand: {
-    transform: "rotate(0deg)",
-    marginLeft: "auto",
-    transition: theme.transitions.create("transform", {
-      duration: theme.transitions.duration.shortest,
-    }),
-  },
-}));
+
 
 export const PopularMovies = () => {
   const [fetchedMovies, setFetchedMovies] = useState([]);
